@@ -1,0 +1,54 @@
+@import './style_components/variables';
+@import './style_components/pagination';
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--STYLES BLOG PAGE--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+.blog__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 14px 20px;
+  margin-bottom: 30px;
+}
+
+.blog__content__item {
+  max-width: 380px;
+  width: 100%;
+}
+
+.blog__content__img {
+  background: #ffffff;
+  margin-bottom: 21px;
+  object-fit: cover;
+}
+
+.blog__content__date {
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #818181;
+  margin-bottom: 8px;
+}
+
+.blog__content__link {
+  color: $main-color-text;
+
+  & h2 {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.32;
+    margin-bottom: 11px;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.blog__content__txt {
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.45;
+  color: $main-color-text;
+  margin-bottom: 20px;
+}

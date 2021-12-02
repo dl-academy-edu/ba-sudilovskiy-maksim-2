@@ -1,0 +1,119 @@
+// -----------------------------------------HEADER--------------------------------------------------->
+
+.header {
+  padding: 49px 0 63px 0;
+}
+
+.dlk-logo {
+  fill:$main-color-text;
+  width: 100px;
+  height: 52px;
+  transition: all .4s ease;
+  &:hover {
+    fill: $link-color-header-hover;
+  }
+  &:active{
+    fill: $link-color-header-active;
+  }
+}
+
+.header__logo {
+  margin-right: 60px;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav {
+  margin-right: auto;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item:not(:last-child) {
+  margin: 0 20px 0 0;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $main-color-text;
+  transition: all .4s ease;
+
+  &:hover {
+    color: $link-color-header-hover;
+  }
+  &:active {
+    color: $link-color-header-active;
+  }
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  &.active {
+    border: 1px solid #000000;
+    border-radius: 15px;
+  }
+}
+
+.search__inp {
+  line-height: 33px;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: 0.4s;
+  width: 0;
+  outline: none;
+  &.active {
+    padding: 0 2px 0 10px;
+    width: 170px;
+    transition: 0.4s;
+  }
+}
+
+.search__btn {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  fill: $main-color-text;
+  position: absolute;
+  left: 10%;
+  top: 11%;
+  transition: all .4s ease;
+  &:hover {
+    fill: $link-color-header-hover;
+  }
+  &:active {
+    fill: $link-color-header-active;
+  }
+}
+
+.header__contact {
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: $main-color-text;
+  transition: all .4s ease;
+  &:hover {
+    color: $link-color-header-hover;
+  }
+  &:active {
+    color: $link-color-header-active;
+  }
+}
