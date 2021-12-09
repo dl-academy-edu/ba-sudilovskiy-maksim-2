@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@300;600;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="css/svg.min.css" />
+    <title>DLK Svg</title>
+  </head>
+  <body>
+    @@include('./components/_header.html')
+
+    <main class="content">
+      <section class="svg">
+        <div class="svg__container container">
+          <h1 class="svg__title title-one">svg animation</h1>
+          <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/">Home</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link"> SVG</span>
+              </li>
+            </ul>
+          </div>
+          <div class="svg__wrapper">
+            <svg
+              class="icon"
+              width="450"
+              height="385"
+              viewBox="0 0 450 385"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="svg animation"
+            >
+              <!-- header -->
+              <path
+                d="M 0 20 H423 C433 20 438 26 438 35 V47 H20 V35 C20 26 25 20 35 20Z"
+                fill="#CCD1D9"
+              />
+
+              <!-- box body-->
+              <rect x="20" y="47" width="21" height="324" fill="#545C66" />
+              <rect x="41" y="47" width="1" height="324" fill="#6C747F" />
+              <rect class="icon__side" x="42" y="47" width="187" height="324" fill="#656D78" />
+              <rect x="229" y="47" width="209" height="324" fill="#E6E9ED" />
+
+              <!-- lines left-bar-->
+              <path
+                class="icon__line-1"
+                d="M 67 74 L196 74"
+                stroke="#5D9CEC"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                class="icon__line-2"
+                d="M 80 101 L210 101"
+                stroke="#A0D468"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 94 128 H122"
+                stroke="#ED5565"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 148 121 C144 121 141 124 141 128 C141 132 144 135 148 135 V121 M148 135 H229 V121 H148 V135"
+                fill="#ED5565"
+              />
+              <path
+                d="M 107 148 C103 148 100 151 100 155 C100 159 103 162 107 162 V148 M107 162 H229 V148 H107 V162"
+                fill="#FFCE54"
+              />
+              <path
+                d="M 107 181 H183"
+                stroke="#CCD1D9"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 107 208 H129"
+                stroke="#CCD1D9"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 154 201 C150 201 147 204 147 208 C147 212 150 215 154 215 V201 M154 215 H229 V201 H154 V215"
+                fill="#CCD1D9"
+              />
+              <path
+                d="M 107 228 C103 228 100 231 100 235 C100 239 103 242 107 242 V228 M107 242 H229 V228 H107 V242"
+                fill="#CCD1D9"
+              />
+              <path
+                d="M 107 262 H196"
+                stroke="#FFCE54"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 94 289 H156"
+                stroke="#ED5565"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                class="icon__line-2"
+                d="M 80 316 L176 316"
+                stroke="#A0D468"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <path
+                class="icon__line-1"  
+                d="M 67 343 H109"
+                stroke="#5D9CEC"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+
+              <!-- box mountins-->
+              <rect
+                class="icon__box-1"
+                x="229"
+                y="67"
+                width="189"
+                height="122"
+                rx="5"
+                fill="#5D9CEC"
+              />
+              <rect
+                class="icon__box-2"
+                x="249"
+                y="208"
+                width="169"
+                height="88"
+                rx="5"
+                fill="#5D9CEC"
+              />
+
+              <!--mountins-->
+              <path
+                class="icon__box-1"
+                d="M 296 133 C296 133 297 133 299 135 L348.5 189 L246 189 L293 134 C294 133 295 133 296 133"
+                fill="#545C66"
+              />
+              <path
+                class="icon__box-1"
+                d="M 343 113 C343 113 345 113 347 115 L405 189 H282L 339 115 C341 113 342 113 343 113"
+                fill="#656D78"
+              />
+              <path
+                class="icon__box-2"
+                d="M 326.5 254 C327 254 329 254 331 256 L358 296 H293 L322 256 C324 254 326 254 326 254"
+                fill="#545C66"
+              />
+              <path
+                class="icon__box-2"
+                d="M363.5 241 C364 241 366 241 368 243 L406 296 H320 L359 243 C361 241 363 241 363 241"
+                fill="#656D78"
+              />
+
+              <!--sun-->
+              <circle
+                class="icon__box-2"
+                cx="283"
+                cy="235"
+                r="15"
+                fill="#FFCE54"
+              />
+
+              <!--lines right-bar-->
+              <path
+                d="M 255 309 C251 309 248 312 248 316 C248 320 251 323 255 323 V309 M411 323 C415 323 418 320 418 316 C418 312 415 309 411 309 V323 M255 323 H411 V309 H255 V323"
+                fill="#CCD1D9"
+              />
+              <path
+                d="M 255 336 C251 336 248 339 248 343 C248 346 251 350 255 350 V336 M337 350 C340 350 344 346 344 343 C344 339 340 336 337 336 V350 M255 350 H337 V336 H255 V350"
+                fill="#CCD1D9"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @@include('./components/_footer.html')
+
+    <script src="js/common.min.js"></script>
+  </body>
+</html>
