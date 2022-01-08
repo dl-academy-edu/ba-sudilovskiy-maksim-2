@@ -31,39 +31,52 @@
             </li>
           </ul>
         </div>
-        <ul class="categories__list">
-          <li class="categories__item">
-            <a class="categories__link" href="#">
-              apparel <br />
-              kids
-            </a>
-          </li>
-          <li class="categories__item">
-            <a class="categories__link" href="#">
-              holiday <br />
-              shop
-            </a>
-          </li>
-          <li class="categories__item">
-            <a class="categories__link" href="toys.html">
-              toys
-            </a>
-          </li>
-          <li class="categories__item">
-            <a class="categories__link" href="#">
-              accessories
-            </a>
-          </li>
-          <li class="categories__item">
-            <a class="categories__link" href="#"> sale </a>
-          </li>
-          <li class="categories__item">
-            <a class="categories__link" href="#">
-              apparel <br />
-              adults
-            </a>
-          </li>
-        </ul>
+        
+        <div class="categories__list row flex-wrap">
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/apparel.jpg",
+            "href": "#",
+            "text": "apparel <br> kids",
+            })              
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-md-4 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/holiday.jpg",
+            "href": "#",
+            "text": "holiday <br> shop",
+            })
+          </div>
+          <div class="col-xl-3 add-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/toys.jpg",
+            "href": "toys.html",
+            "text": "toys",
+            })
+          </div>
+          <div class="col-xl-3 skip-xl-2 col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/accessories.jpg",
+            "href": "#",
+            "text": "accessories",
+            })
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/sale.jpg",
+            "href": "#",
+            "text": "sale",
+            })
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            @@include('./components/_categories-item.html', {
+            "src": "img/adults.jpg",
+            "href": "#",
+            "text": "apparel <br> adults",
+            })
+          </div>
+        </div>
+        
         <div class="categories__desc">
           <h2 class="categories__desc__title title-two">product description</h2>
           <p class="categories__desc__txt">

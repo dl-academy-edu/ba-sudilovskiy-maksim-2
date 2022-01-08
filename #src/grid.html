@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@300;600;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="css/grid.min.css" />
+    <title>DLK Grid</title>
+  </head>
+  <body>
+    @@include('./components/_header.html')
+    <main class="content">
+      <section class="grid">
+        <div class="grid__container">
+          <div class="grid__top container">
+            <h1 class="grid__title title-one">grid</h1>
+            <div class="breadcrumbs">
+              <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="/">Home</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <span class="breadcrumbs__link"> Grid</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid__content">
+            <div class="grid__item item-1">
+              <div class="item-1__desc">
+                <span class="item-1__txt1">IPHONE 6S</span>
+                <p class="item-1__txt2">3D Touch. 12MP photos. 4K video. One powerful phone</p>
+                <a class="item-1__more" href="#">Learn more or visit an Apple Store today</a>
+              </div>
+              <div class="item-1__pic">
+                <picture>
+                  <source srcset="img/mobile_mobile.png, img/mobile_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/mobile_tablet.png, img/mobile_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/mobile.png, img/mobile_2x.png 2x">
+                  <img class="grid__img" srcset="img/mobile.png, img/mobile_2x.png 2x" alt="pic mobile">
+                </picture>
+              </div>
+            </div>
+            <div class="grid__item item-2">
+              <div class="item-2__desc">
+                <a class="item-2__more">LEARN MORE</a>
+                <p class="item-2__txt">How to Use Rotary Evaporator in Chemical Labs</p>
+                <a class="item-2__download" href="#">Download now</a>
+              </div>
+            </div>
+            <div class="grid__item item-3">
+              <div class="item-3__pic">
+                <picture>
+                  <source srcset="img/keyboard_mobile.png, img/keyboard_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/keyboard_tablet.png, img/keyboard_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/keyboard.png, img/keyboard_2x.png 2x">
+                  <img class="grid__img" srcset="img/keyboard.png, img/keyboard_2x.png 2x" alt="pic keyboard">
+                </picture>
+              </div>
+              <p class="item-3__txt">Our Brand New Keyboard</p>
+              <a class="item-3__more">LEARN ›</a>
+            </div>
+            <div class="grid__item item-4">
+              <div class="item-4__left">
+                <span class="item-4__txt1">IMAC.RETINA</span>
+                <p class="item-4__txt2">Hardly a month passes these days where</p>
+              </div>
+              <div class="item-4__right">
+                <p class="item-4__txt3">Apple may be experimenting in the virtual reality space. The company has been granted a patent for a head-mounted virtual reality device that would use the iPhone screen as the display.</p>
+                <a class="item-4__download">DOWNLOAD NOW ›</a>
+              </div>
+              <div class="item-4__pic">
+                <picture>
+                  <source srcset="img/pc_mobile.png, img/pc_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/pc_tablet.png, img/pc_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/pc.png, img/pc_2x.png 2x">
+                  <img class="grid__img" srcset="img/pc.png, img/pc_2x.png 2x" alt="pic pc">
+                </picture>
+              </div>
+            </div>
+            <div class="grid__item item-5">
+              <span class="item-5__txt1">POPULAR</span>
+              <div class="item-5__pic">
+                <picture>
+                  <source srcset="img/disk_mobile.png, img/disk_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/disk_tablet.png, img/disk_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/disk.png, img/disk_2x.png 2x">
+                  <img class="grid__img" srcset="img/disk.png, img/disk_2x.png 2x" alt="pic disk">
+                </picture>
+              </div>
+              <span class="item-5__txt2">MEET</span>
+              <span class="item-5__txt3">iCloud</span>
+              <p class="item-5__txt4">With iCloud, you always have the latest versions of your most important things — like documents, apps, notes, and contacts — on whatever device you’re using.</p>
+              <a class="item-5__more">LEARN MORE</a>
+            </div>
+            <div class="grid__item item-6">
+              <span class="item-6__txt1">BEST CHOICE</span>
+              <p class="item-6__txt2">Much MuchBetter Experience</p>
+              <div class="item-6__pic">
+                <picture >
+                  <source srcset="img/ipad_mobile.png, img/ipad_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/ipad_tablet.png, img/ipad_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/ipad.png, img/ipad_2x.png 2x">
+                  <img class="grid__img" srcset="img/ipad.png, img/ipad_2x.png 2x" alt="pic ipad">
+                </picture>
+              </div>
+            </div>
+            <div class="grid__item item-7">
+              <div class="item-7__pic">
+                <picture>
+                  <source srcset="img/stick_mobile.png, img/stick_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/stick_tablet.png, img/stick_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/stick.png, img/stick_2x.png 2x">
+                  <img class="grid__img" srcset="img/stick.png, img/stick_2x.png 2x" alt="pic stick">
+                </picture>
+              </div>
+              <p class="item-7__txt">Games ourpasion</p>
+              <a class="item-7__more">LEARN ›</a>
+            </div>
+            <div class="grid__item item-8">
+              <svg class="item-8__icon">
+                <use href="./img/sprite_multi.svg#icon-followme"></use>
+              </svg>
+              <a class="item-8__more">Follow me ›</a>
+            </div>
+            <div class="grid__item item-9">
+              <div class="item-9__pic">
+                <picture>
+                  <source srcset="img/tv_mobile.png, img/tv_mobile_2x.png 2x" media="(max-width: 650px)">
+                  <source srcset="img/tv_tablet.png, img/tv_tablet_2x.png 2x" media="(max-width: 1023px)">
+                  <source srcset="img/tv.png, img/tv_2x.png 2x">
+                  <img class="grid__img" srcset="img/tv.png, img/tv_2x.png 2x" alt="pic tv">
+                </picture>
+              </div>
+              <p class="item-9__txt">More than just a display,  it’s a vision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./components/_footer.html') 
+    
+    <script src="js/common.min.js"></script>
+  </body>
+</html>

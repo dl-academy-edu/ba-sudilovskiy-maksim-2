@@ -180,78 +180,66 @@
           <div class="toys__view">
             <div class="toys__view__catalog toys__catalog">
               <ul class="toys__catalog__list">
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/1.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>sharky bean bag chair cover</p>
-                    <span>$60.00 usd</span>
-                  </a>
-                </li>
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/2.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>BRASS DECO FRAMES</p>
-                    <span>$66.00 usd</span>
-                  </a>
-                </li>
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/3.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>CIBO FULL APRON</p>
-                    <span>$60.00 usd</span>
-                  </a>
-                </li>
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/4.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>GATCHA GATCHA GUMBALL MACHINE</p>
-                    <span>$56.00 usd</span>
-                  </a>
-                </li>
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/5.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>CHRISTMAS ADVENT SCENTED CANDLE</p>
-                    <span>$29.00 usd</span>
-                  </a>
-                </li>
-                <li class="toys__catalog__item">
-                  <a class="toys__catalog__link" href="#">
-                    <img
-                      src="img/6.jpg"
-                      alt="product image"
-                      width="380"
-                      height="385"
-                    />
-                    <p>TANGLE SPINNING TEA LIGHT</p>
-                    <span>$56.00 usd</span>
-                  </a>
-                </li>
+                 @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/1_mobile.jpg, img/1_mobile_2x.jpg 2x",
+                    "src-tablet": "img/1_tablet.jpg, img/1_tablet_2x.jpg 2x",
+                    "src-desktop": "img/1.jpg, img/1_2x.jpg 2x",
+                    "src-old-browser": "img/1.jpg, img/1_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "sharky bean bag chair cover",
+                    "cost": "$60.00 usd", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/2_mobile.jpg, img/2_mobile_2x.jpg 2x",
+                    "src-tablet": "img/2_tablet.jpg, img/2_tablet_2x.jpg 2x",
+                    "src-desktop": "img/2.jpg, img/2_2x.jpg 2x",
+                    "src-old-browser": "img/2.jpg, img/2_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "BRASS DECO FRAMES",
+                    "cost": "$66.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/3_mobile.jpg, img/3_mobile_2x.jpg 2x",
+                    "src-tablet": "img/3_tablet.jpg, img/3_tablet_2x.jpg 2x",
+                    "src-desktop": "img/3.jpg, img/3_2x.jpg 2x",
+                    "src-old-browser": "img/3.jpg, img/3_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "CIBO FULL APRON",
+                    "cost": "$60.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/4_mobile.jpg, img/4_mobile_2x.jpg 2x",
+                    "src-tablet": "img/4_tablet.jpg, img/4_tablet_2x.jpg 2x",
+                    "src-desktop": "img/4.jpg, img/4_2x.jpg 2x",
+                    "src-old-browser": "img/4.jpg, img/4_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "GATCHA GATCHA GUMBALL MACHINE",
+                    "cost": "$56.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/5_mobile.jpg, img/5_mobile_2x.jpg 2x",
+                    "src-tablet": "img/5_tablet.jpg, img/5_tablet_2x.jpg 2x",
+                    "src-desktop": "img/5.jpg, img/5_2x.jpg 2x",
+                    "src-old-browser": "img/5.jpg, img/5_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "CHRISTMAS ADVENT SCENTED CANDLE",
+                    "cost": "$29.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/6_mobile.jpg, img/6_mobile_2x.jpg 2x",
+                    "src-tablet": "img/6_tablet.jpg, img/6_tablet_2x.jpg 2x",
+                    "src-desktop": "img/6.jpg, img/6_2x.jpg 2x",
+                    "src-old-browser": "img/6.jpg, img/6_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "TANGLE SPINNING TEA LIGHT",
+                    "cost": "$56.00 USD", 
+                  })
               </ul>
             </div>
             @@include('./components/_pagination.html')

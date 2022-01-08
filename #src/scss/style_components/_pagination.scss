@@ -57,3 +57,21 @@
 }
 
 
+
+//-----------MEDIA--------------->
+
+@media (max-width: 785px) { 
+  .pagination {
+    margin-bottom: 48px;
+  }
+}
+@media (max-width: 784px) { 
+  .pagination ul li:not(:last-child){
+    margin-right: calc(51px + (65 - 51) * ((100vw - 392px) / (784 - 392)));
+  }
+  .pagination__btn {
+    font-size: calc(14px + (16 - 14) * ((100vw - 392px) / (784 - 392)));
+  }
+}
+
+

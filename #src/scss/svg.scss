@@ -61,7 +61,15 @@
 }
 
 .svg {
-  margin-bottom: 50px;
+  margin-bottom: 43px;
+
+  &__title {
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+  &__wrapper {
+    margin-top: -20px;
+  }
 }
 
 .icon {
@@ -83,5 +91,21 @@
   }
   &__line-2 {
     animation: moveLine 1s infinite linear reverse;
+  }
+}
+
+
+
+//-----------MEDIA--------------->
+
+
+@media (max-width: 784px) {
+  .svg__title {
+    margin-top: 21px;
+    font-size: calc(24px + (36 - 24) * ((100vw - 392px) / (784 - 392)));
+  }
+  .icon {
+     width: calc(350px + (450 - 350) * ((100vw - 392px) / (784 - 392)));
+     height: calc(285px + (385 - 285) * ((100vw - 392px) / (784 - 392)));
   }
 }

@@ -8,6 +8,7 @@ let path = {
     js: final_folder + '/js/',
     img: final_folder + '/img/',
     fonts: final_folder + '/fonts/',
+    media: final_folder + '/media/',
   },
   src: {
     html: [src_folder + '/**/*.html', '!' + src_folder + '/**/_*.html'],
@@ -15,6 +16,7 @@ let path = {
     js: [src_folder + '/js/**/*.js', '!' + src_folder + '/**/_*.js'],
     img: src_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
     fonts: src_folder + '/fonts/*.ttf',
+    media: src_folder + '/media/*.mp3',
   },
   watch: {
     html: src_folder + '/**/*.html',
@@ -135,7 +137,8 @@ function fonts () {
 }
 
 function svgSpriteMono() {
-  return gulp.src([src_folder + '/img/icons/mono_svg/*.svg'])
+  return gulp
+    .src([src_folder + '/img/icons/mono_svg/*.svg'])
     .pipe(
       svgSprite({
         mode: {
@@ -160,7 +163,7 @@ function svgSpriteMono() {
         },
       })
     )
-    .pipe(dest(path.build.img))
+    .pipe(dest(path.build.img));
 }
 
 function svgSpriteMulti () {
@@ -192,6 +195,11 @@ function svgSpriteMulti () {
     .pipe(dest(path.build.img))
 }
 
+function media () {
+  return src(path.src.media)
+    .pipe(dest(path.build.media))
+}
+
 
 
 function watchFiles () {
@@ -206,10 +214,11 @@ function clean () {
 }
 
 let createSpriteSvg = gulp.parallel(svgSpriteMono, svgSpriteMulti);
-let build = gulp.series(clean, gulp.parallel(images, createSpriteSvg, fonts, js, css, html))
+let build = gulp.series(clean, gulp.parallel(media, images, createSpriteSvg, fonts, js, css, html))
 let watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 
+exports.media = media;
 exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
