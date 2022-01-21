@@ -1,0 +1,25 @@
+<li class="catalog__item">
+  <a class="catalog__link" href="@@href">
+    <div class="catalog__pic">
+      <picture>
+        <source
+          srcset="@@src-mobile"
+          media="(max-width: 600px)"
+        />
+        <source
+          srcset="@@src-tablet"
+          media="(max-width: 980px)"
+        />
+        <source srcset="@@src-desktop" />
+        <img
+          class="catalog__img"
+          srcset="@@src-old-browser"
+          alt="@@alt"
+        />
+      </picture>
+    </div>
+    
+    <p class="catalog__txt">@@text</p>
+    <span class="catalog__cost">@@cost</span>
+  </a>
+</li>

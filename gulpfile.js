@@ -1,135 +1,233 @@
-let gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  autoprefixer = require("gulp-autoprefixer"),
-  cleanCSS = require("gulp-clean-css"),
-  babel = require("gulp-babel"),
-  uglify = require("gulp-uglify"),
-  del = require("del"),
-  browserSync = require("browser-sync"),
-  fileinclude = require("gulp-file-include"),
-  fs = require("fs-extra"),
-  path = require("path");
+let final_folder = 'build',
+    src_folder = '#src';
 
-sass.compiler = require("node-sass"); // Переназначаем компилирование
+let path = {
+  build: {
+    html: final_folder + '/',
+    css: final_folder + '/css/',
+    js: final_folder + '/js/',
+    img: final_folder + '/img/',
+    fonts: final_folder + '/fonts/',
+    media: final_folder + '/media/',
+  },
+  src: {
+    html: [src_folder + '/**/*.html', '!' + src_folder + '/**/_*.html'],
+    css: src_folder + '/scss/*.scss',
+    js: [src_folder + '/js/**/*.js', '!' + src_folder + '/**/_*.js'],
+    img: src_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+    fonts: src_folder + '/fonts/*.ttf',
+    media: src_folder + '/media/*.mp3',
+  },
+  watch: {
+    html: src_folder + '/**/*.html',
+    css: src_folder + '/scss/**/*.scss',
+    js: src_folder + '/js/**/*.js',
+    img: src_folder + '/img/*.{jpg,png,svg,gif,ico,webp}',
+    fonts: src_folder + '/fonts/*.ttf',
+  },
+  clean: './' + final_folder + '/*',
+};
 
-// Название build папки
-const finalFolder = "build";
+let { src, dest } = require('gulp'),
+  gulp = require('gulp'),
+  browsersync = require('browser-sync').create(),
+  fileinclude = require('gulp-file-include'),
+  del = require('del'),
+  sass = require('gulp-sass')(require('sass')),
+  autoprefixer = require('gulp-autoprefixer'),
+  group_media = require('gulp-group-css-media-queries'),
+  cleanCSS = require('gulp-clean-css'),
+  rename = require('gulp-rename'),
+  uglify = require('gulp-uglify'),
+  babel = require('gulp-babel'),
+  imagemin = require('gulp-imagemin'),
+  imageminPngquant = require('imagemin-pngquant'),
+  ttf2woff = require('gulp-ttf2woff'),
+  ttf2woff2 = require('gulp-ttf2woff2'),
+  svgSprite = require('gulp-svg-sprite');
 
-// Функция обработки html файлов
-function html(src, dest) {
-  return gulp
-    .src(src)
+
+
+function browserSync () {
+    browsersync.init({
+      server: {
+        baseDir: './' + final_folder + '/'
+      },
+      notify: false
+    })
+}
+
+function html () {
+  return src(path.src.html)
+    .pipe(fileinclude())
+    .pipe(dest(path.build.html))
+    .pipe(browsersync.stream())
+}
+
+function css() {
+  return src(path.src.css)
     .pipe(
-      fileinclude({
-        prefix: "@@",
-        basepath: "./src/components"
-      }).on("error", function(error) {
-        console.error(error);
+      sass({
+        outputStyle: 'expanded',
       })
     )
-    .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({ stream: true }));
-}
-// Функция обработки scss файлов
-function scss(src, dest) {
-  return gulp
-    .src(src)
-    .pipe(sass().on("error", sass.logError))
+    .pipe(group_media())
     .pipe(
       autoprefixer({
-        cascade: false
+        overrideBrowserslist: ['Last 5 versions'],
+        cascade: false,
       })
     )
+    .pipe(dest(path.build.css))
     .pipe(
       cleanCSS({
-        level: 2
+        level: 2,
       })
     )
-    .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(
+      rename({
+        extname: '.min.css'
+      })
+    )
+    .pipe(dest(path.build.css))
+    .pipe(browsersync.stream())
 }
-// Функция обработки js файлов
-function js(src, dest) {
-  return gulp
-    .src(src)
+
+function js() {
+  return src(path.src.js)
+    .pipe(fileinclude())
+    .pipe(dest(path.build.js))
     .pipe(
       babel({
-        presets: ["@babel/env"]
+        presets: ['@babel/env'],
       })
     )
+    .pipe(uglify())
     .pipe(
-      uglify({ toplevel: true }).on("error", function() {
-        this.emit("end");
+      rename({
+        extname: '.min.js',
       })
     )
-    .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({ stream: true }));
-}
-// Функция обработки шрифтов
-function fonts(src, dest) {
-  fs.mkdirSync(dest, {recursive: true});
-  fs.copy(src, dest);
-  // TODO: нужно сделать оптимизацию шрифтов
-}
-// Функция обработки картинок
-function img(src, dest) {
-  fs.mkdirSync(dest, {recursive: true});
-  fs.copy(src, dest);
-  // TODO: нужно сделать оптимизацию картинок
+    .pipe(dest(path.build.js))
+    .pipe(browsersync.stream())
 }
 
-// Функция сборки проекта
-async function buildProject() {
-  // Очистка папки "build"
-  await del([`./${finalFolder}/*`]);
-
-  // Обработка всех страниц (html, scss, js)
-  const arrayPages = fs.readdirSync("./src/pages");
-  let pathBuild = "";
-  for (let folder of arrayPages) {
-    folder === "main"
-      ? (pathBuild = `./${finalFolder}`)
-      : (pathBuild = `./${finalFolder}/pages/${folder}`);
-
-    const pathFolder = `./src/pages/${folder}`;
-    for (let file of fs.readdirSync(pathFolder)) {
-      const fileName = `./${pathFolder}/${file}`;
-
-      switch (path.extname(fileName)) {
-        case ".html":
-          html(fileName, pathBuild);
-          break;
-        case ".scss":
-          scss(fileName, pathBuild);
-          break;
-        case ".js":
-          js(fileName, pathBuild);
-          break;
-      }
-    }
-  }
-
-  // Обработка стилей компонентов
-  scss("./src/components/common.scss", `./${finalFolder}`);
-  // Обработка картинок
-  img("./src/static/images", `./${finalFolder}/static/images`);
-  // Обработка шрифтов
-  fonts("./src/static/fonts", `./${finalFolder}/static/fonts`);
+function images() {
+  return src(path.src.img)
+    .pipe(dest(path.build.img))
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 70 }),
+        imagemin.svgo(),
+        imageminPngquant({ quality: [0.8, 0.9] })
+      ])
+    )
+    .pipe(dest(path.build.img))
+    .pipe(browsersync.stream());
 }
 
-// Функция которая слушает изменения файлов в проекте
-function watch() {
-  browserSync.init({
-    server: {
-      baseDir: `./${finalFolder}`
-    }
-  });
-  // При изменении любого типа файлов пересобрать проект
-  gulp.watch("./src/**/*.*", buildProject);
+function fonts () {
+  src(path.src.fonts)
+    .pipe(ttf2woff())
+    .pipe(dest(path.build.fonts))
+  return src(path.src.fonts)
+    .pipe(ttf2woff2())
+    .pipe(dest(path.build.fonts))
 }
-gulp.task("watch", watch);
 
-// Сборка проекта
-gulp.task("build", buildProject);
-// Режим разработки
-gulp.task("start", gulp.series("build", "watch"));
+function svgSpriteMono() {
+  return gulp
+    .src([src_folder + '/img/icons/mono_svg/*.svg'])
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: {
+            sprite: '../sprite_mono.svg',
+          },
+        },
+        shape: {
+          transform: [
+            {
+              svgo: {
+                plugins: [
+                  {
+                    removeAttrs: {
+                      attrs: ['class', 'data-name'],
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      })
+    )
+    .pipe(dest(path.build.img));
+}
+
+function svgSpriteMulti () {
+  return gulp.src([src_folder + '/img/icons/multi_svg/*.svg'])
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: {
+            sprite: '../sprite_multi.svg',
+          },
+        },
+        shape: {
+          transform: [
+            {
+              svgo: {
+                plugins: [
+                  {
+                    removeAttrs: {
+                      attrs: ['class', 'data-name', 'fill'],
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      })
+    )
+    .pipe(dest(path.build.img))
+}
+
+function media () {
+  return src(path.src.media)
+    .pipe(dest(path.build.media))
+}
+
+
+
+function watchFiles () {
+  gulp.watch([path.watch.html], html)
+  gulp.watch([path.watch.css], css)
+  gulp.watch([path.watch.js], js)
+  gulp.watch([path.watch.img], images)
+}
+
+function clean () {
+  return del(path.clean)
+}
+
+let createSpriteSvg = gulp.parallel(svgSpriteMono, svgSpriteMulti);
+let build = gulp.series(clean, gulp.parallel(media, images, createSpriteSvg, fonts, js, css, html))
+let watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
+
+
+exports.media = media;
+exports.fonts = fonts;
+exports.images = images;
+exports.js = js;
+exports.css = css;
+exports.html = html;
+exports.build = build;
+exports.watch = watch;
+exports.default = watch;
+
+gulp.task('svg', createSpriteSvg);
+gulp.task('build', build);
+gulp.task('start', watch);

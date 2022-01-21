@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@300;600;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="css/blog.min.css" />
+    <title>DLK Blog</title>
+  </head>
+  <body>
+    @@include('./components/_header.html')
+
+    <main class="content">
+      <section class="blog">
+        <div class="blog__container container">
+          <h1 class="blog__title title-one">blog</h1>
+          <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/">Home</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link">Blog</span>
+              </li>
+            </ul>
+          </div>
+          <ul class="blog__content">
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-1_mobile.jpg, img/article-1_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-1_tablet.jpg, img/article-1_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-1.jpg, img/article-1_2x.jpg 2x",
+              "src-old-browser": "img/article-1.jpg, img/article-1_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Top 5 fastest growing it service companies in philly", 
+              "href": "#",
+              "text": "Direct Line Development’s Team is excited to announce that we received UpCity’s 2019 Local Excellence Award! This prestigious award is annually presented to the Top 1% of service providers in the given marketplace.", 
+            })
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-2_mobile.jpg, img/article-2_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-2_tablet.jpg, img/article-2_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-2.jpg, img/article-2_2x.jpg 2x",
+              "src-old-browser": "img/article-2.jpg, img/article-2_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Best financial", 
+              "href": "#",
+              "text": "Direct Line Development is honored to be recognized as one of the Top 100 Fastest Growing Companies 2019 in Philadelphia, according to Growjo’s ranking.", 
+            })
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-3_mobile.jpg, img/article-3_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-3_tablet.jpg, img/article-3_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-3.jpg, img/article-3_2x.jpg 2x",
+              "src-old-browser": "img/article-3.jpg, img/article-3_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Company logo or brand identity: which one is more important? brand identity", 
+              "href": "#",
+              "text": "To survive in the world of digital marketing, you need to keep up with the latest SEO trends. Here are our simple, but effective, SEO tips for small business success.", 
+            })
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-4_mobile.jpg, img/article-4_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-4_tablet.jpg, img/article-4_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-4.jpg, img/article-4_2x.jpg 2x",
+              "src-old-browser": "img/article-4.jpg, img/article-4_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Best financial", 
+              "href": "#",
+              "text": "Direct Line Development is honored to be recognized as one of the Top 100 Fastest Growing Companies 2019 in Philadelphia, according to Growjo’s ranking.", 
+            })
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-5_mobile.jpg, img/article-5_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-5_tablet.jpg, img/article-5_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-5.jpg, img/article-5_2x.jpg 2x",
+              "src-old-browser": "img/article-5.jpg, img/article-5_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Company logo or brand identity: which one is more important? brand identity", 
+              "href": "#",
+              "text": "To survive in the world of digital marketing, you need to keep up with the latest SEO trends. Here are our simple, but effective, SEO tips for small business success.", 
+            })
+            @@include('./components/_article-item.html', {
+              "src-mobile": "img/article-6_mobile.jpg, img/article-6_mobile_2x.jpg 2x",
+              "src-tablet": "img/article-6_tablet.jpg, img/article-6_tablet_2x.jpg 2x",
+              "src-desktop": "img/article-6.jpg, img/article-6_2x.jpg 2x",
+              "src-old-browser": "img/article-6.jpg, img/article-6_2x.jpg 2x",
+              "alt": "article image",
+              "date": "23rd August 2018",
+              "title": "Top 5 fastest growing it service companies in philly", 
+              "href": "#",
+              "text": "Direct Line Development’s Team is excited to announce that we received UpCity’s 2019 Local Excellence Award! This prestigious award is annually presented to the Top 1% of service providers in the given marketplace.", 
+            })
+          </ul>
+
+          @@include('./components/_pagination.html')
+        </div>
+      </section>
+    </main>
+
+    @@include('./components/_footer.html')
+
+    <script src="js/common.min.js"></script>
+  </body>
+</html>

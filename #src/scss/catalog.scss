@@ -1,0 +1,203 @@
+@import './style_components/variables';
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--STYLES CATALOG PAGE--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+// --------------------------MIXIN GRID---------------------------->
+$numberColumns: 12;
+$gap: 20px;
+
+$size-xl: 1220px;
+$size-lg: 1180px;
+$size-md: 700px;
+$size-sm: 576px;
+
+@mixin media-interval($min, $max) {
+  @if $max == 0 {
+    $max: 9999px;
+  }
+  
+  @media (min-width: ($min + 1px)) and (max-width: $max) {
+    @content;
+  }
+}
+@mixin create-grid($type-width, $media-size) {
+  @if media-size == "full" {
+    .container-grid {
+      max-width: 100%;
+    }
+  } @else {
+    .container-grid {
+      max-width: $media-size - $gap*2;
+    }
+  }
+  @for $i from 1 through $numberColumns {
+    .col-#{$type-width}-#{$i} {
+      width: (100% / $numberColumns) * $i;
+    }
+  
+    .skip-#{$type-width}-#{$i} {
+      margin-left: (100% / $numberColumns) * $i;
+    }
+    .add-#{$type-width}-#{$i} {
+      margin-right: (100% / $numberColumns) * $i;
+    }
+  }
+}
+
+@include media-interval($size-xl, 0) {
+  @include create-grid(xl, $size-xl);
+}
+@include media-interval($size-lg, $size-xl) {
+  @include create-grid(lg, $size-lg);
+}
+@include media-interval($size-md, $size-lg) {
+  @include create-grid(md, $size-md);
+}
+@include media-interval($size-sm, $size-md) {
+  @include create-grid(sm, $size-sm);
+}
+@include media-interval(0, $size-sm) {
+  @include create-grid(xs, "full");
+}
+
+.container-grid {
+  padding-left: $gap;
+  padding-right: $gap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-fluid {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: $gap;
+  padding-right: $gap;
+}
+
+.row {
+  display: flex;
+  margin: (-$gap) (-$gap/2) 0 (-$gap/2);
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+div[class*="col"] {
+  box-sizing: border-box;
+  padding: $gap $gap/2 0 $gap/2;
+}
+
+// -------------------------------------SECTION CATEGORIES------------------------------------->
+
+.categories__title {
+  margin-bottom: 15px;
+}
+
+.categories__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  // gap: 23px 0px;
+}
+
+.categories__desc {
+  max-width: 680px;
+  width: 100%;
+  margin-left: 201px;
+  margin-bottom: 54px;
+  &__title {
+    margin-bottom: 25px;
+  }
+  &__txt {
+    line-height: 1.4;
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+}
+
+
+
+// ---------------------------- MEDIA -------------------->
+@media (max-width: 1000px) {
+  .categories__desc {
+    margin-left: calc(0px + (201 - 0) * ((100vw - 785px) / (1000 - 785)));
+  }
+  .categories__item {
+    max-width: calc(203px + (274 - 203) * ((100vw - 785px) / (1000 - 785)));
+    height: calc(196px + (270 - 196) * ((100vw - 785px) / (1000 - 785)));
+  }
+}
+
+
+@media (max-width: 900px) {
+  .categories__link {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 785px) {
+  .categories__desc {
+    margin: 0 0 48px 0;
+  }
+  .categories__item {
+    max-width: 203px;
+    height: 196px;
+  }
+  .categories__title {
+    margin-bottom: 0;
+  }
+  .categories__desc__title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .categories__list {
+    margin-bottom: 42px;
+  }
+}
+
+@media (max-width: 700px) {
+  .categories__item {
+    max-width: 265px;
+    height: 245px;
+  }
+  .categories__desc__title {
+    font-size: calc(24px + (36 - 24) * ((100vw - 392px) / (700 - 392)));
+    margin-bottom: calc(15px + (20 - 15) * ((100vw - 392px) / (700 - 392)));
+  }
+}
+
+@media (max-width: 630px) {
+  .categories__item {
+    max-width: calc(160px + (265 - 160) * ((100vw - 392px) / (630 - 392)));
+    height: calc(155px + (245 - 155) * ((100vw - 392px) / (630 - 392)));
+  }
+   .categories__link {
+    font-size: calc(18px + (24 - 18) * ((100vw - 392px) / (630 - 392)));
+  }
+}
+
+@media (max-width: 500px) {
+  div[class*="col"] {
+    padding: 17px 8px 0px 8px;
+  }
+  .categories__list {
+    margin-bottom: 30px;
+  }
+  .categories__desc {
+    margin-bottom: 45px;
+  }
+}
+
+
+
+
+
+ 

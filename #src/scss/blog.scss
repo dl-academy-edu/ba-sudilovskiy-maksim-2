@@ -1,0 +1,42 @@
+@import './style_components/variables';
+@import './style_components/pagination';
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--STYLES BLOG PAGE--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+.blog__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-bottom: 30px;
+}
+
+
+
+//--------------MEDIA-------------------->
+
+@media (max-width: 1317px) { 
+  .blog__content {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 920px) { 
+  .blog__content {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 785px) { 
+  .blog__content {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+

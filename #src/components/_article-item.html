@@ -1,0 +1,27 @@
+<li class="blog__content__item">
+  <div class="blog__content__pic">
+    <picture>
+      <source
+        srcset="@@src-mobile"
+        media="(max-width: 600px)"
+      />
+      <source
+        srcset="@@src-tablet"
+        media="(max-width: 980px)"
+      />
+      <source srcset="@@src-desktop" />
+      <img
+        class="blog__content__img"
+        srcset="@@src-old-browser"
+        alt="@@alt"
+      />
+    </picture>
+  </div>
+  <span class="blog__content__date">@@date</span>
+  <a class="blog__content__link" href="@@href">
+    <h2 class="blog__content__title">@@title</h2>
+  </a>
+  <p class="blog__content__txt">
+    @@text
+  </p>
+</li>

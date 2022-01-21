@@ -1,0 +1,107 @@
+@import './style_components/variables';
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--STYLES CONTACT US PAGE--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+// -------------------------------------SECTION CONTACT------------------------------------->
+
+.contact {
+  margin-bottom: 59px;
+  &__desc {
+    max-width: 380px;
+    width: 100%;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: $main-color-text;
+    
+    
+
+    &__txt {
+      margin-bottom: 19px;
+    }
+    &__span {
+      font-family: 'Montserrat', 'Arial', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #c29974;
+      letter-spacing: 0.3px;
+    }
+  }
+}
+
+
+//-----------MEDIA--------------->
+
+@media (max-width: 1230px) { 
+  .contact__desc {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 900px) { 
+  .contact-form {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 42px;
+  }
+  .contact-form form {
+    order: 2;
+  }
+  .contact__desc {
+    max-width: 536px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 45px;
+    padding-left: 0;
+  }
+}
+@media (max-width: 785px) { 
+  .contact {
+    margin-bottom: 52px;
+  }
+  .contact-form form {
+    padding: 42px 56px;
+  }
+}
+
+@media (max-width: 600px) { 
+  .contact__desc__txt {
+    font-size: calc(14px + (16 - 14) * ((100vw - 392px) / (600 - 392)));
+    margin-bottom: calc(14px + (19 - 14) * ((100vw - 392px) / (600 - 392)));
+  }
+  .contact__desc__span {
+    font-size: calc(24px + (26 - 24) * ((100vw - 392px) / (600 - 392)));
+  }
+  .contact-form {
+    margin-top: calc(24px + (42 - 25) * ((100vw - 392px) / (600 - 392)));
+  }
+  .contact__desc {
+    margin-bottom: calc(30px + (45 - 30) * ((100vw - 392px) / (600 - 392)));
+  }
+  .contact-form form {
+    padding: 25px;
+  }
+  .contact-form__wrapper {
+    margin-bottom: 14px;
+  }
+  .contact-form__wrapper input {
+    font-size: calc(14px + (16 - 14) * ((100vw - 392px) / (600 - 392)));
+    line-height: calc(38px + (48 - 38) * ((100vw - 392px) / (600 - 392)));
+    padding: 0 15px;
+  }
+  .contact-form__wrapper:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+  }
+  .contact-form__wrapper__inner {
+    width: 100%;
+  }
+  .contact-form__consent__inp {
+    margin-right: 17px;
+  }
+  .contact {
+    margin-bottom: 50px;
+  }
+}

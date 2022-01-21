@@ -1,0 +1,277 @@
+// -----------------------------------------HEADER--------------------------------------------------->
+
+.header {
+  padding: 49px 0 62px 0;
+  position: relative;
+}
+
+.dlk-logo {
+  fill:$main-color-text;
+  width: 100px;
+  height: 52px;
+  transition: all .4s ease;
+  &:hover {
+    fill: $link-color-header-hover;
+  }
+  &:active{
+    fill: $link-color-header-active;
+  }
+}
+
+.header__logo {
+  margin-right: 60px;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav {
+  margin-right: auto;
+}
+
+
+.burger-btns {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  &__open {
+    display: none;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: $main-color-text;
+    background-color: transparent;
+    transform: translateX(20%);
+  }
+  &__close {
+    display: none;
+    fill: $main-color-text;
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.burger-btns__open.active {
+  display: none;
+}
+.burger-btns__close.active {
+  display: block;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 19px;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $main-color-text;
+  transition: all .4s ease;
+
+  &:hover {
+    color: $link-color-header-hover;
+  }
+  &:active {
+    color: $link-color-header-active;
+  }
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  &.active {
+    border: 1px solid #000000;
+    border-radius: 15px;
+    z-index: 2;
+  }
+}
+
+.search__inp {
+  line-height: 33px;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: 0.4s;
+  width: 0;
+  outline: none;
+  &.active {
+    padding: 0 2px 0 10px;
+    width: 170px;
+    transition: 0.4s;
+  }
+}
+
+.search__btn {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 10px;
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  fill: $main-color-text;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .4s ease;
+  &:hover {
+    fill: $link-color-header-hover;
+  }
+  &:active {
+    fill: $link-color-header-active;
+  }
+}
+
+.header__contact {
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: $main-color-text;
+  transition: all .4s ease;
+  &:hover {
+    color: $link-color-header-hover;
+  }
+  &:active {
+    color: $link-color-header-active;
+  }
+}
+
+.burger {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(125, 151, 218, 0.8);
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 40px 0;
+    transition: 3s;
+  }
+  &__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  &__contact {
+    display: block;
+    margin: 40px 0 0 0;
+  }
+  &.active {
+    display: block;
+  }
+}
+
+
+// MEDIA -------------------->
+@media (max-width: 1035px) {
+  .header__logo {
+    margin-right: 30px;
+  }
+  .header__search.active {
+    margin-left: 10px;
+  }
+  .search__inp.active {
+    width: 120px; 
+  }
+  .header__contact {
+    margin-left: 10px;
+  }
+  .nav__list {
+    gap: 6px 10px;
+  }
+}
+@media (max-width: 960px) {
+ .search__inp.active {
+    width: 80px; 
+  }
+}
+
+@media (max-width: 870px){
+  .nav__list {
+    display: none;
+  }
+  .burger__list {
+    display: flex;
+  }
+  .header__contact {
+    display: none;
+  }
+  .burger__contact {
+    display: block;
+    margin-left: 0;
+  }
+  .burger-btns__open {
+    display: block;
+  } 
+}
+
+@media (max-width: 785px){
+  .header {
+    padding: 35px 0 33px 0;
+  }
+  .dlk-logo {
+    width: calc(42px + (62 - 42) * ((100vw - 392px) / (785 - 392)));
+    height: calc(22px + (32 - 22) * ((100vw - 392px) / (785 - 392)));
+  }
+  .search__inp.active {
+    width: 120px; 
+  }
+  .header__container {
+    padding-left: calc(30px + (60 - 30) * ((100vw - 392px) / (785 - 392)));
+    padding-right: calc(35px + (60 - 35) * ((100vw - 392px) / (785 - 392)));
+  }
+  .search__btn {
+    width: 18px;
+    height: 18px;
+  }
+  .search-icon {
+    width: calc(13px + (18 - 13) * ((100vw - 392px) / (785 - 392)));
+    height: calc(13px + (18 - 13) * ((100vw - 392px) / (785 - 392)));
+  }
+  .burger__menu {
+    padding: calc(25px + (40 - 25) * ((100vw - 392px) / (785 - 392)));
+  }
+  .burger__list {
+    gap: calc(20px + (30 - 20) * ((100vw - 392px) / (785 - 392)));
+  }
+  .burger__contact {
+    margin-top: calc(35px + (40 - 35) * ((100vw - 392px) / (785 - 392)));
+  }
+}
+
+@media (max-width: 392px){
+  .header {
+    padding: 20px 12px 20px 0;
+  }
+  .header__search {
+    padding-right: -20px;
+  }
+  .dlk-logo {
+    margin-left: 10px;
+  }
+}

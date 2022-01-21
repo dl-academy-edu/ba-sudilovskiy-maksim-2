@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@300;600;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="css/toys.min.css" />
+
+    <title>DLK Toys</title>
+  </head>
+  <body>
+    @@include('./components/_header.html')
+
+    <main class="content">
+      <section class="toys">
+        <div class="toys__container container">
+          <h1 class="toys__title title-one">toy for kids</h1>
+          <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/">Home</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="catalog.html">Catalog</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link">Toys</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="product__menu container">
+            <div class="product__menu__cost">
+              <span>Cost</span>
+              <div class="range__container">
+                <div class="range__inp" id="range"></div>
+                <div class="range__inp__min">0</div>
+                <div class="range__inp__max">500</div>
+              </div>
+            </div>
+            <div class="product__menu__color menu__color">
+              <span>Color</span>
+              <ul class="menu__color__list">
+                <li class="menu__color__item">
+                  <input
+                    class="color__checkbox"
+                    type="checkbox"
+                    id="color-black"
+                    aria-label="color black"
+                    checked
+                  />
+                  <label class="color__label" for="color-black" tabindex="0"
+                    >Black</label
+                  >
+                </li>
+                <li class="menu__color__item">
+                  <input
+                    class="color__checkbox"
+                    type="checkbox"
+                    id="color-blue"
+                    aria-label="color blue"
+                  />
+                  <label class="color__label" for="color-blue" tabindex="0"
+                    >Blue</label
+                  >
+                </li>
+                <li class="menu__color__item">
+                  <input
+                    class="color__checkbox"
+                    type="checkbox"
+                    id="color-green"
+                    aria-label="color green"
+                  />
+                  <label class="color__label" for="color-green" tabindex="0"
+                    >Green</label
+                  >
+                </li>
+                <li class="menu__color__item">
+                  <input
+                    class="color__checkbox"
+                    type="checkbox"
+                    id="color-white"
+                    aria-label="color white"
+                    disabled
+                  />
+                  <label class="color__label" for="color-white" tabindex="0"
+                    >White</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="product__menu__delivery menu__delivery">
+              <span>Delivery</span>
+              <ul class="menu__delivery__list">
+                <li class="menu__delivery__item">
+                  <input
+                    class="delivery__radio"
+                    type="radio"
+                    id="delivery-radio-1"
+                    name="delivery-radio"
+                    aria-label="free shipping"
+                    checked
+                  />
+                  <label
+                    class="delivery__label"
+                    for="delivery-radio-1"
+                    tabindex="0"
+                    >Free Shipping</label
+                  >
+                </li>
+                <li class="menu__delivery__item">
+                  <input
+                    class="delivery__radio"
+                    type="radio"
+                    id="delivery-radio-2"
+                    name="delivery-radio"
+                    aria-label="fast shipping"
+                  />
+                  <label
+                    class="delivery__label"
+                    for="delivery-radio-2"
+                    tabindex="0"
+                    >Fast Shipping</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="product__menu__amount menu__amount">
+              <span>Amount</span>
+              <ul class="menu__amount__list">
+                <li class="menu__amount__item">
+                  <input
+                    class="amount__checkbox"
+                    type="checkbox"
+                    id="amount-check-1"
+                    aria-label="amount"
+                    checked
+                  />
+                  <label class="amount__label" for="amount-check-1" tabindex="0"
+                    >0-5</label
+                  >
+                </li>
+                <li class="menu__amount__item">
+                  <input
+                    class="amount__checkbox"
+                    type="checkbox"
+                    id="amount-check-2"
+                    aria-label="amount"
+                  />
+                  <label class="amount__label" for="amount-check-2" tabindex="0"
+                    >10-20</label
+                  >
+                </li>
+                <li class="menu__amount__item">
+                  <input
+                    class="amount__checkbox"
+                    type="checkbox"
+                    id="amount-check-3"
+                    aria-label="amount"
+                  />
+                  <label class="amount__label" for="amount-check-3" tabindex="0"
+                    >20-50</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <button class="product__menu__btn btn">apply</button>
+          </div>
+        </div>
+        <div class="toys__container container">
+          <div class="toys__view">
+            <div class="toys__view__catalog toys__catalog">
+              <ul class="toys__catalog__list">
+                 @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/1_mobile.jpg, img/1_mobile_2x.jpg 2x",
+                    "src-tablet": "img/1_tablet.jpg, img/1_tablet_2x.jpg 2x",
+                    "src-desktop": "img/1.jpg, img/1_2x.jpg 2x",
+                    "src-old-browser": "img/1.jpg, img/1_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "sharky bean bag chair cover",
+                    "cost": "$60.00 usd", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/2_mobile.jpg, img/2_mobile_2x.jpg 2x",
+                    "src-tablet": "img/2_tablet.jpg, img/2_tablet_2x.jpg 2x",
+                    "src-desktop": "img/2.jpg, img/2_2x.jpg 2x",
+                    "src-old-browser": "img/2.jpg, img/2_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "BRASS DECO FRAMES",
+                    "cost": "$66.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/3_mobile.jpg, img/3_mobile_2x.jpg 2x",
+                    "src-tablet": "img/3_tablet.jpg, img/3_tablet_2x.jpg 2x",
+                    "src-desktop": "img/3.jpg, img/3_2x.jpg 2x",
+                    "src-old-browser": "img/3.jpg, img/3_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "CIBO FULL APRON",
+                    "cost": "$60.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/4_mobile.jpg, img/4_mobile_2x.jpg 2x",
+                    "src-tablet": "img/4_tablet.jpg, img/4_tablet_2x.jpg 2x",
+                    "src-desktop": "img/4.jpg, img/4_2x.jpg 2x",
+                    "src-old-browser": "img/4.jpg, img/4_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "GATCHA GATCHA GUMBALL MACHINE",
+                    "cost": "$56.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/5_mobile.jpg, img/5_mobile_2x.jpg 2x",
+                    "src-tablet": "img/5_tablet.jpg, img/5_tablet_2x.jpg 2x",
+                    "src-desktop": "img/5.jpg, img/5_2x.jpg 2x",
+                    "src-old-browser": "img/5.jpg, img/5_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "CHRISTMAS ADVENT SCENTED CANDLE",
+                    "cost": "$29.00 USD", 
+                  })
+                  @@include('./components/_catalog-item.html', {
+                    "href": "#",
+                    "src-mobile": "img/6_mobile.jpg, img/6_mobile_2x.jpg 2x",
+                    "src-tablet": "img/6_tablet.jpg, img/6_tablet_2x.jpg 2x",
+                    "src-desktop": "img/6.jpg, img/6_2x.jpg 2x",
+                    "src-old-browser": "img/6.jpg, img/6_2x.jpg 2x",
+                    "alt": "product image",
+                    "text": "TANGLE SPINNING TEA LIGHT",
+                    "cost": "$56.00 USD", 
+                  })
+              </ul>
+            </div>
+            @@include('./components/_pagination.html')
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @@include('./components/_footer.html')
+
+    <script src="js/common.min.js"></script>
+    <script src="js/toys.min.js"></script>
+
+  </body>
+</html>

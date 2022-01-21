@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@300;600;700&family=Open+Sans:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="css/contact.min.css" />
+    <title>DLK Contact</title>
+  </head>
+  <body>
+    @@include('./components/_header.html')
+
+    <main class="content">
+      <section class="contact container">
+        <h1 class="contact__title title-one">contact &#160;us</h1>
+        <div class="breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="/">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <span class="breadcrumbs__link"> Contact Us</span>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <div class="contact-form__wrapper">
+              <label for="contact-name">Name</label>
+              <input
+                type="text"
+                id="contact-name"
+              />
+            </div>
+            <div class="contact-form__wrapper">
+              <div class="contact-form__wrapper__inner">
+                <label for="contact-phone">Phone</label>
+                <input
+                  type="number"
+                  id="contact-phone"
+                />
+              </div>
+              <div class="contact-form__wrapper__inner">
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                />
+              </div>
+            </div>
+            <div class="contact-form__wrapper">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message"></textarea>
+            </div>
+            <div class="contact-form__consent">
+              <input
+                class="contact-form__consent__inp"
+                type="checkbox"
+                id="contact-check"
+                checked
+              />
+              <label class="contact-form__consent__label" for="contact-check"
+                >By clicking on the button, you consent to the processing of
+                your personal data
+              </label>
+            </div>
+            <button class="contact-form__btn btn" type="submit">submit</button>
+          </form>
+          <div class="contact__desc">
+            <p class="contact__desc__txt">
+              Our support team are on-hand to assist with any issues you are
+              experiencing.
+            </p>
+            <p class="contact__desc__txt">
+              Please use the form to contact us with your needs. Send us a
+              message and we'll respond as soon as possible.
+            </p>
+            <span class="contact__desc__span">an expert is waiting to help you!</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    @@include('./components/_footer.html')
+
+    <script src="js/common.min.js"></script>
+  </body>
+</html>
